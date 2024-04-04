@@ -1,12 +1,8 @@
-![main](https://github.com/tstxni97/.github/workflows/go.yml/badge.svg?branch=main)
+# goBahtText  ![main branch](https://github.com/tstxni97/goBahtText/actions/workflows/go.yml/badge.svg?branch=main)
 
+go library convert numerical var to thai text based on https://github.com/tstxni97/py3bahttext
 
-
-# goBahtText
-go lib convert numerical var to thai text based on https://github.com/tstxni97/py3bahttext
-
-
-โกไลบราลีสามารถแปลงตัวเลขเป็นข้อความไทยได้ใช้หน่วยสตางค์ได้ถูกต้อง โดยแปลงโค้ดจาก  https://github.com/tstxni97/py3bahttext
+โกไลบราลีสามารถแปลงตัวเลขเป็นข้อความไทยได้ใช้หน่วยสตางค์ได้ถูกต้อง โดยแปลงโค้ดจาก https://github.com/tstxni97/py3bahttext
 
 # Installation
 

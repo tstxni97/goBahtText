@@ -1,3 +1,7 @@
+![main](https://github.com/tstxni97/.github/workflows/go.yml/badge.svg?branch=main)
+
+
+
 # goBahtText
 go lib convert numerical var to thai text based on https://github.com/tstxni97/py3bahttext
 

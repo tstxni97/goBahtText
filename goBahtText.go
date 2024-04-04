@@ -19,7 +19,7 @@ var thaiNumbersMap = map[string]string{
 	"9": "เก้า",
 }
 
-var thaiMultiplier = []string{"", "สิบ", "ร้อย", "พัน", "หมื่น", "แสน", "ล้าน"}
+var thaiMultipliersList = []string{"", "สิบ", "ร้อย", "พัน", "หมื่น", "แสน", "ล้าน"}
 
 func splitMillionSequence(seq string) []string {
 	mlength := 6
@@ -51,11 +51,10 @@ func reverseStringSlice(s []string) []string {
 	return s
 }
 
-func convertSpecialTwoDigit(intString string) string {
+func convertSpecialTwoDigits(intString string) string {
 	bahtString := ""
-	if intString[0] == '1' {
-		// do nothing
-	} else if intString[0] == '2' {
+
+	if intString[0] == '2' {
 		bahtString += "ยี่"
 	} else if intString[0] == '3' || intString[0] == '4' || intString[0] == '5' || intString[0] == '6' || intString[0] == '7' || intString[0] == '8' || intString[0] == '9' {
 		bahtString += thaiNumbersMap[string(intString[0])]
@@ -84,14 +83,14 @@ func convertSpecialTwoDigit(intString string) string {
 	return bahtString
 }
 
-func convertMultipleMillion(intString string) string {
+func convertMultipleMillions(intString string) string {
 	bahtString := ""
 
-	// integer number part
+	// integer part
 	if len(intString) == 1 {
 		bahtString += thaiNumbersMap[intString]
 	} else if len(intString) == 2 {
-		bahtString += convertSpecialTwoDigit(intString)
+		bahtString += convertSpecialTwoDigits(intString)
 	} else if len(intString) >= 3 && len(intString) <= 6 {
 		for numberIndex := 0; numberIndex < len(intString)-2; numberIndex++ {
 			multiplier, err := strconv.Atoi(string(intString[numberIndex]))
@@ -100,10 +99,10 @@ func convertMultipleMillion(intString string) string {
 			}
 			if multiplier != 0 {
 				bahtString += thaiNumbersMap[string(intString[numberIndex])]
-				bahtString += thaiMultiplier[len(intString)-numberIndex-1]
+				bahtString += thaiMultipliersList[len(intString)-numberIndex-1]
 			}
 		}
-		bahtString += convertSpecialTwoDigit(intString[len(intString)-2:])
+		bahtString += convertSpecialTwoDigits(intString[len(intString)-2:])
 	}
 
 	return bahtString
@@ -129,7 +128,7 @@ func BahtText(inputFloat float64) string {
 
 	for _, millionGroupString := range millionSequenceList {
 
-		bahtString += convertMultipleMillion(millionGroupString)
+		bahtString += convertMultipleMillions(millionGroupString)
 
 		if millionIndex > 0 {
 			bahtString += "ล้าน"
@@ -139,7 +138,7 @@ func BahtText(inputFloat float64) string {
 
 	bahtString += "บาท"
 
-	// decimal number part
+	// decimal part
 	decimalInt, _ := strconv.Atoi(decimalString)
 	if decimalInt == 0 {
 		bahtString += "ถ้วน"
@@ -147,7 +146,7 @@ func BahtText(inputFloat float64) string {
 		if len(decimalString) == 1 {
 			bahtString += thaiNumbersMap[string(rune(decimalInt))]
 		} else if len(decimalString) == 2 {
-			bahtString += convertSpecialTwoDigit(decimalString)
+			bahtString += convertSpecialTwoDigits(decimalString)
 		}
 
 		bahtString += "สตางค์"

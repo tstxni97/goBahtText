@@ -1,7 +1,8 @@
 # goBahtText
-go lib convert numerical var to thai text
+go lib convert numerical var to thai text based on https://github.com/tstxni97/py3bahttext
 
-โกไลบราลีสามารถแปลงตัวเลขเป็นข้อความไทยได้ใช้หน่วยสตางค์ได้ถูกต้อง
+
+โกไลบราลีสามารถแปลงตัวเลขเป็นข้อความไทยได้ใช้หน่วยสตางค์ได้ถูกต้อง โดยแปลงโค้ดจาก  https://github.com/tstxni97/py3bahttext
 
 # Installation
 
@@ -24,5 +25,3 @@ func main() {
     // สองบาทยี่สิบเอ็ดสตางค์
 }
 ```
-
-

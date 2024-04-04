@@ -1,0 +1,4 @@
+package gobahttext
+
+func init() {
+}

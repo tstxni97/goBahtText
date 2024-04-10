@@ -56,7 +56,7 @@ func convertSpecialTwoDigits(intString string) string {
 
 	if intString[0] == '2' {
 		bahtString += "ยี่"
-	} else if intString[0] == '3' || intString[0] == '4' || intString[0] == '5' || intString[0] == '6' || intString[0] == '7' || intString[0] == '8' || intString[0] == '9' {
+	} else if intString[0] != '0' && intString[0] != '1' {
 		bahtString += thaiNumbersMap[string(intString[0])]
 	}
 
